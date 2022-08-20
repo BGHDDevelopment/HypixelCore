@@ -1,0 +1,4 @@
+name: HypixelCore
+version: '${project.version}'
+main: net.bghd.hypixel.core.Core
+authors: [ BGHDDevelopment ]
