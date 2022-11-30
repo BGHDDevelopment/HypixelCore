@@ -23,6 +23,7 @@ public class PlayerData implements Listener {
     private Core plugin = Core.getInstance();
     private java.util.UUID UUID;
     private String playerName;
+    private Rank rank = Rank.DEFAULT;
     private Int networkLevel = new Int();
 
     public PlayerData() {
@@ -41,7 +42,7 @@ public class PlayerData implements Listener {
                     Core.getInstance().getMySQLManager().execute("UPDATE player SET name=? WHERE UUID=?",
                             player.getName(), player.getUniqueId().toString());
                 } else {
-                    Core.getInstance().getMySQLManager().execute("INSERT INTO player(uuid, name, network_level, gold, rank) VALUES (?,?,?,?,?)", player.getUniqueId().toString(), player.getName(), 1, 0, "NONE");
+                    Core.getInstance().getMySQLManager().execute("INSERT INTO player(uuid, name, network_level, gold, rank) VALUES (?,?,?,?,?)", player.getUniqueId().toString(), player.getName(), 1, 0, Rank.DEFAULT.toString());
                 }
             } catch (SQLException exception) {
                 //Throw

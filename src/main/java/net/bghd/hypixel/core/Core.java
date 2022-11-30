@@ -23,6 +23,7 @@ public final class Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerData(), this);
     }
 
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
