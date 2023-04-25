@@ -1,6 +1,7 @@
 package net.bghd.hypixel.core;
 
 import lombok.Getter;
+import net.bghd.hypixel.core.managers.ChatManager;
 import net.bghd.hypixel.core.managers.MySQLManager;
 import net.bghd.hypixel.core.managers.PlayerData;
 import net.bghd.hypixel.core.managers.ProfileManager;
@@ -14,6 +15,8 @@ public final class Core extends JavaPlugin {
     public static Core instance;
     private MySQLManager mySQLManager;
     private ProfileManager profileManager;
+    private ChatManager chatManager;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -33,7 +36,7 @@ public final class Core extends JavaPlugin {
     public void loadManagers() {
         mySQLManager = new MySQLManager(this);
         profileManager = new ProfileManager(this);
-
+        chatManager = new ChatManager(this);
     }
 
 
